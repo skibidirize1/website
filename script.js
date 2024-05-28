@@ -1,7 +1,3 @@
-(function() {
-    emailjs.init('YOUR_USER_ID'); // Replace 'YOUR_USER_ID' with your actual user ID from EmailJS
-})();
-
 document.getElementById('translate-button').addEventListener('click', function() {
     const englishText = document.getElementById('english-text').value;
 
@@ -25,28 +21,31 @@ document.getElementById('translate-button').addEventListener('click', function()
 
 document.getElementById('send-email-button').addEventListener('click', function() {
     const spanishText = document.getElementById('spanish-text').value;
-    const emailAddress = document.getElementById('email-address').value;
 
     if (!spanishText) {
         alert('No translated text to send.');
         return;
     }
 
-    if (!emailAddress) {
-        alert('Please enter an email address.');
-        return;
-    }
-
-    const templateParams = {
-        message: spanishText,
-        email: emailAddress
-    };
-
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-        .then(function(response) {
+    // Send email using Google Apps Script
+    fetch('https://script.google.com/macros/s/AKfycbwjWHxWdEPr0pzEjDpB1gv6M1UE6fcG0NovXgmnodPySi3y3ZYvN2wKCQKQPvXuZPW3/exec', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+            'message': spanishText
+        })
+    })
+    .then(response => {
+        if (response.ok) {
             alert('Email sent successfully!');
-        }, function(error) {
-            console.error('Error:', error);
+        } else {
             alert('There was an error sending the email.');
-        });
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('There was an error sending the email.');
+    });
 });
