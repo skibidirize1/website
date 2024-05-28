@@ -12,6 +12,10 @@ document.getElementById('translate-button').addEventListener('click', function()
         .then(data => {
             const spanishText = data.responseData.translatedText;
             document.getElementById('spanish-text').value = spanishText;
+
+            // Update the title dynamically
+            document.title = `Translation: ${spanishText}`;
+            document.getElementById('title').innerText = `Translation: ${spanishText}`;
         })
         .catch(error => {
             console.error('Error:', error);
