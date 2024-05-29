@@ -65,7 +65,7 @@ document.getElementById('send-email-button').addEventListener('click', function(
     }
 
     // Send email using Google Apps Script
-    fetch('https://script.google.com/macros/s/AKfycbx_aVWWjhX7oKfFGvAYAa476XyN0BMrPjsbdhrleqrfSwzI0D-JCc86Uhxejo7SjRd4/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbwkHUDEXOVCT2S4SGQqNYsrHR1zBYe7es_1z9dchQoXFWAaAMz_5otNcgRWVm63dEEj/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
