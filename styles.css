@@ -25,6 +25,12 @@ input[type="text"], textarea {
     border-radius: 4px;
     background-color: #333;
     color: #e0e0e0;
+    outline: none;
+}
+
+input[type="text"] {
+    height: 40px;
+    font-size: 16px;
 }
 
 textarea {
