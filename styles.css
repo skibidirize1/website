@@ -54,3 +54,25 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+.rating {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.star {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.star:hover,
+.star.selected {
+    color: gold;
+}
+
+.star.selected ~ .star {
+    color: #ccc;
+}
