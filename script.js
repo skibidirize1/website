@@ -90,14 +90,14 @@ document.getElementById('send-email-button').addEventListener('click', function(
 
 // Star rating functionality
 const stars = document.querySelectorAll('.star');
-stars.forEach(star => {
+stars.forEach((star, index) => {
     star.addEventListener('click', () => {
+        // Remove 'selected' class from all stars
         stars.forEach(s => s.classList.remove('selected'));
-        star.classList.add('selected');
-        let previousSibling = star.previousElementSibling;
-        while (previousSibling) {
-            previousSibling.classList.add('selected');
-            previousSibling = previousSibling.previousElementSibling;
+        
+        // Add 'selected' class to clicked star and all stars before it
+        for (let i = 0; i <= index; i++) {
+            stars[i].classList.add('selected');
         }
     });
 });
