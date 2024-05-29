@@ -65,7 +65,7 @@ document.getElementById('send-email-button').addEventListener('click', function(
     }
 
     // Send email using Google Apps Script
-    fetch('https://script.google.com/macros/s/AKfycby8yxU9jooYSKTWMtGQQPr0y_BRENx0HXqBPLKNExBzdoxsNfsC8P2K3brEUSME-TPjAw/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbx_aVWWjhX7oKfFGvAYAa476XyN0BMrPjsbdhrleqrfSwzI0D-JCc86Uhxejo7SjRd4/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -85,5 +85,19 @@ document.getElementById('send-email-button').addEventListener('click', function(
     .catch(error => {
         console.error('Error:', error);
         alert('There was an error sending the email.');
+    });
+});
+
+// Star rating functionality
+const stars = document.querySelectorAll('.star');
+stars.forEach(star => {
+    star.addEventListener('click', () => {
+        stars.forEach(s => s.classList.remove('selected'));
+        star.classList.add('selected');
+        let previousSibling = star.previousElementSibling;
+        while (previousSibling) {
+            previousSibling.classList.add('selected');
+            previousSibling = previousSibling.previousElementSibling;
+        }
     });
 });
