@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Translation App</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <h1 id="title">Translation App</h1>
-    <textarea id="english-text" placeholder="Enter text in English"></textarea>
-    <button id="translate-button">Translate</button>
-    <textarea id="spanish-text" placeholder="Translated text will appear here"></textarea>
-    <button id="send-email-button">Send Email</button>
-    <script src="path/to/your/script.js"></script>
+<body class="csbody">
+    <div class="container">
+        <h1 id="title">Translation App</h1>
+        <textarea id="english-text" placeholder="Enter text in English"></textarea>
+        <button id="translate-button">Translate</button>
+        <textarea id="spanish-text" placeholder="Translated text will appear here" readonly></textarea>
+        <button id="send-email-button">Send Email</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
