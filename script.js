@@ -15,7 +15,7 @@ document.getElementById('translate-button').addEventListener('click', function()
 
             // Update the title dynamically
             document.title = `Translation: ${spanishText}`;
-            document.getElementById('title').innerText = `Translation: ${spanishText}`;
+            document.getElementById('main-title').innerText = `Translation: ${spanishText}`;
         })
         .catch(error => {
             console.error('Error:', error);
@@ -25,9 +25,15 @@ document.getElementById('translate-button').addEventListener('click', function()
 
 document.getElementById('send-email-button').addEventListener('click', function() {
     const spanishText = document.getElementById('spanish-text').value;
+    const emailTitle = document.getElementById('email-title').value;
 
     if (!spanishText) {
         alert('No translated text to send.');
+        return;
+    }
+
+    if (!emailTitle) {
+        alert('Please enter a title for the email.');
         return;
     }
 
@@ -38,7 +44,8 @@ document.getElementById('send-email-button').addEventListener('click', function(
             'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: new URLSearchParams({
-            'message': spanishText
+            'message': spanishText,
+            'title': emailTitle
         })
     })
     .then(response => {
