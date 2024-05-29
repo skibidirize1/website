@@ -32,7 +32,7 @@ document.getElementById('send-email-button').addEventListener('click', function(
     }
 
     // Send email using Google Apps Script
-    fetch('https://script.google.com/a/macros/salkeiz.k12.or.us/s/AKfycbxFsQn54-PbnIyRg4nYp7qoZUHlo_4Eep3QUWTwj8o04lA1sSnb6b0T9naVOkln1s6o/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbx_aVWWjhX7oKfFGvAYAa476XyN0BMrPjsbdhrleqrfSwzI0D-JCc86Uhxejo7SjRd4/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
