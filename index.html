@@ -3,25 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Translation App</title>
+    <title>Star Rating</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="csbody">
-    <div class="container">
-        <h1 id="main-title">Translation App</h1>
-        <input type="text" id="email-title" placeholder="Enter email title">
-        <textarea id="english-text" placeholder="Enter text in English"></textarea>
-        <button id="translate-button">Translate</button>
-        <textarea id="spanish-title" placeholder="Translated title will appear here" readonly></textarea>
-        <textarea id="spanish-text" placeholder="Translated text will appear here" readonly></textarea>
-        <button id="send-email-button">Send Email</button>
-        <div class="rating">
-            <span class="star" data-value="1">&#9733;</span>
-            <span class="star" data-value="2">&#9733;</span>
-            <span class="star" data-value="3">&#9733;</span>
-            <span class="star" data-value="4">&#9733;</span>
-            <span class="star" data-value="5">&#9733;</span>
-        </div>
+<body>
+    <div class="stars" data-rating="0">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
     </div>
     <script src="script.js"></script>
 </body>
