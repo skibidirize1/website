@@ -15,8 +15,19 @@ document.getElementById('translate-button').addEventListener('click', function()
     // Function to translate text using MyMemory API
     function translateText(text, langpair) {
         return fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${langpair}`)
-            .then(response => response.json())
-            .then(data => data.responseData.translatedText);
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.responseData) {
+                    return data.responseData.translatedText;
+                } else {
+                    throw new Error('Invalid response data');
+                }
+            });
     }
 
     // Translate both the title and the text
@@ -24,6 +35,9 @@ document.getElementById('translate-button').addEventListener('click', function()
         translateText(emailTitle, 'en|es'),
         translateText(englishText, 'en|es')
     ]).then(([translatedTitle, translatedText]) => {
+        console.log('Translated Title:', translatedTitle);
+        console.log('Translated Text:', translatedText);
+
         document.getElementById('spanish-title').value = translatedTitle;
         document.getElementById('spanish-text').value = translatedText;
 
